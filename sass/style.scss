@@ -1,0 +1,74 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+	display: block;
+}
+body {
+	margin: 0px;
+	font-family: "Open Sans";
+}
+
+.light-green {
+	color: #acd037;
+}
+
+.white-bold-font {
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+}
+
+.center-vertically-parent {
+	position: relative;
+	height: 100%;
+}
+
+.center-vertically-child {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.pagewrap {
+	width: 1620px;
+	margin: 0 auto;
+}
+
+.header {
+	background-color: rgba(0, 0, 0, 0.1);
+	position: fixed;
+	left: 0px;
+	width: 100%;
+
+	.main-menu {
+		height: 87px;
+		width: 1620px;
+		margin: auto;
+		.logo {
+			@extend .center-vertically-child;
+			margin-left: 70px;
+		}
+		nav {
+			@extend .center-vertically-parent;
+			.main-nav {
+				@extend .center-vertically-child;
+				right: 0px;
+				margin: 0px;
+				padding: 0px;
+				li {
+					margin: auto 64px;
+					list-style: none;
+					float: left;
+					letter-spacing: 2px;
+					a {
+						@extend .white-bold-font;
+						text-decoration: none;
+						font-size: 20px;
+					}
+					a:hover {
+						@extend .light-green;
+					}
+				}
+
+			}
+		}
+	}
+}
+
