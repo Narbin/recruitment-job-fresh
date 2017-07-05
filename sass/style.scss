@@ -6,6 +6,27 @@ body {
 	font-family: "Open Sans";
 }
 
+.button {
+	@extend .white-bold-font;
+	background-color: rgb( 37, 54, 93 );
+	padding: 16px 54px;
+	border-radius: 25px;
+	text-decoration: none;
+	font-size: 18px;
+	font-family: "Open Sans";
+	img {
+		margin-right: 18px;
+		margin-left: -18px;
+		position: relative;
+		top: 1px;
+	}
+	&:hover {
+		@extend .light-green;
+	}
+}
+
+
+
 .light-green {
 	color: #acd037;
 }
@@ -37,6 +58,7 @@ body {
 	top: 0px;
 	left: 0px;
 	width: 100%;
+	z-index: 100;
 
 	.main-menu {
 		height: 87px;
@@ -62,10 +84,11 @@ body {
 						@extend .white-bold-font;
 						text-decoration: none;
 						font-size: 20px;
+						&:hover {
+							@extend .light-green;
+						}
 					}
-					a:hover {
-						@extend .light-green;
-					}
+
 				}
 
 			}
@@ -73,3 +96,31 @@ body {
 	}
 }
 
+main {
+	padding-top: 240px;
+	background-image: url(images/background-top.png);
+	height: 100vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	.introduction {
+		text-align: center;
+		.title {
+			@extend .white-bold-font;
+			font-size: 91px;
+			letter-spacing: 3px;
+		}
+		.title-description {
+			font-size: 24px;
+			width: 830px;
+			margin: 0 auto 60px auto;
+			color: rgb(187, 216, 255);
+			&::first-line {
+				line-height: 50px;
+			}
+		}
+	}
+}
