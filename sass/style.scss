@@ -1,38 +1,44 @@
+//colors
+$black:					#000000;			// czarny
+$light-green:			#acd037;			// jasno zielony
+$white:					#ffffff;			// biały
+$dark-blue:				#25365d;			// granat
+$black-transparent:		rgba(0, 0, 0, 0.1);	// czerny przezroczysty
+$light-blue:			#bbd8ff;			// jasny niebieski
+
+//base
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
 	display: block;
 }
+
 body {
 	margin: 0px;
 	font-family: "Open Sans";
 }
 
+//components
 .button {
 	@extend .white-bold-font;
-	background-color: rgb( 37, 54, 93 );
+	background-color: $dark-blue;
 	padding: 16px 54px;
 	border-radius: 25px;
 	text-decoration: none;
 	font-size: 18px;
-	font-family: "Open Sans";
+
+	&:hover {
+		color: $light-green;
+	}
+
 	img {
 		margin-right: 18px;
 		margin-left: -18px;
 		position: relative;
 		top: 1px;
 	}
-	&:hover {
-		@extend .light-green;
-	}
-}
-
-
-
-.light-green {
-	color: #acd037;
 }
 
 .white-bold-font {
-	color: rgb(255, 255, 255);
+	color: $white;
 	font-weight: bold;
 }
 
@@ -47,13 +53,14 @@ body {
 	transform: translateY(-50%);
 }
 
+//content
 .pagewrap {
 	width: 1620px;
 	margin: 0 auto;
 }
 
 .header {
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: $black-transparent;
 	position: fixed;
 	top: 0px;
 	left: 0px;
@@ -64,33 +71,37 @@ body {
 		height: 87px;
 		width: 1620px;
 		margin: auto;
+
 		.logo {
 			@extend .center-vertically-child;
 			margin-left: 70px;
 		}
-		nav {
-			@extend .center-vertically-parent;
-			.main-nav {
-				@extend .center-vertically-child;
-				right: 0px;
-				margin: 0px;
-				padding: 0px;
-				li {
-					margin: auto 64px;
-					list-style: none;
-					float: left;
-					letter-spacing: 2px;
-					a {
-						@extend .white-bold-font;
-						text-decoration: none;
-						font-size: 20px;
-						&:hover {
-							@extend .light-green;
-						}
-					}
+	}
+}
 
+nav {
+	@extend .center-vertically-parent;
+
+	.main-nav {
+		@extend .center-vertically-child;
+		right: 0px;
+		margin: 0px;
+		padding: 0px;
+
+		li {
+			margin: auto 64px;
+			list-style: none;
+			float: left;
+			letter-spacing: 2px;
+
+			a {
+				@extend .white-bold-font;
+				text-decoration: none;
+				font-size: 20px;
+
+				&:hover {
+					color: $light-green;
 				}
-
 			}
 		}
 	}
@@ -98,26 +109,29 @@ body {
 
 main {
 	padding-top: 240px;
-	background-image: url(images/background-top.png);
 	height: 100vh;
+	width: 100%;
+	background-image: url(images/background-top.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	width: 100%;
+	
 	.introduction {
 		text-align: center;
+
 		.title {
 			@extend .white-bold-font;
 			font-size: 91px;
 			letter-spacing: 3px;
 		}
+
 		.title-description {
 			font-size: 24px;
 			width: 830px;
 			margin: 0 auto 60px auto;
-			color: rgb(187, 216, 255);
+			color: $light-blue;
 			&::first-line {
 				line-height: 50px;
 			}
