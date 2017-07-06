@@ -12,10 +12,12 @@
 
 	.main-menu {
 		margin: auto;
+
 		@include media(S) {
 			height: 150px;
 			text-align: center;
 		}
+
 		@include media(M) {
 			height: 87px;
 			text-align: left;
@@ -24,6 +26,7 @@
 		@include media(S) {
 			width: 100%;
 		}
+
 		@include media(XXXL) {
 			width: 1620px;
 		}
@@ -48,14 +51,18 @@
 
 nav {
 	@extend .center-vertically-parent;
+
 	@include media(S) {
 	    margin-top: -68px;
 	}
+
 	@include media(M) {
 	    margin-top: 0px;
 	}
+
 	.main-nav {
 		@extend .center-vertically-child;
+
 		right: 0px;
 		margin: 0px;
 		padding: 0px;
@@ -84,13 +91,16 @@ nav {
 				margin: 10px 0px 0px 0px;
     			flex: 1 0 50%;
 			}
+
 			@include media(M) {
 				margin: auto 15px;
 				flex: 0 0 0%;
 			}
+
 			a {
 				@extend .white-bold-font;
 				@include transition(0.5s, ease);
+
 				text-decoration: none;
 				font-size: 20px;
 
@@ -103,11 +113,10 @@ nav {
 }
 
 main {
-
-
 	.introduction {
 		height: 1590px;
 		position: relative;
+
 		.introduction-container {
 			padding-top: 240px;
 			width: 100%;
@@ -123,21 +132,24 @@ main {
 
 		.title {
 			@extend .white-bold-font;
+
 			letter-spacing: 3px;
 
 			@include media(S) {
 				font-size: 45px;
-			}    
+			}
+
 			@include media(M) {
 				font-size: 55px;
-			}    
+			}
+
 			@include media(M) {
 				font-size: 80px;
-			}    
+			}
+
 			@include media(L) {
 				font-size: 91px;
-			}   
-
+			}
 		}
 
 		.title-description {
@@ -146,11 +158,14 @@ main {
 			@include media(S) {
 				width: 100%;
 			}
+
 			@include media(XL) {
 				width: 830px;
 			}
+
 			margin: 0 auto 60px auto;
 			color: $light-blue;
+
 			&::first-line {
 				line-height: 50px;
 			}
@@ -167,9 +182,11 @@ main {
 			width: 100%;
 			text-align: center;
 			left: 0px;
+
 			@include media(S) {
 				display: none;
 			}
+
 			@include media(XXL) {
 			    bottom: 480px;
     			font-size: 170px;
@@ -179,9 +196,7 @@ main {
 			@include media(XXXXL) {
 				display: none;
 			}
-
 		}
-
 	}
 	.download {
 		text-align: left;
@@ -189,44 +204,53 @@ main {
 		position: absolute;
 		bottom: 0px;
 		margin-bottom: 140px;
+
 		@include media(S) {
 			text-align: center;
 			width: 100%;
 			margin-bottom: 20px;
 		}
+
 		@include media(M) {
 			width: 100%;
 			margin-bottom: 200px;
 		}
+
 		@include media(XXL) {
 			text-align: left;
 			width: 780px;
 			    margin-bottom: 145px;
 		}
 		
-		
 		.title-dark {
 			@extend .white-bold-font;
+
 			color: $dark-blue;
 			margin-bottom: 70px;
 			z-index: 2;
 			position: relative;
+
 			@include media(S) {
 				font-size: 30px;
 			}
+
 			@include media(M) {
 				font-size: 60px;
 			}
 		}
+
 		.advantage {
 			color: $light-blue;
 		}
+
 		p {
 			line-height: 35px;
 			margin: 0px;
+
 			&:nth-child(2) {
 				margin-bottom: 30px;
 			}
+
 			&:nth-child(5) {
 				margin-bottom: 50px;
 			}
@@ -241,10 +265,12 @@ main {
 		@include media(S) {
 			display: none;
 		}
+
 		@include media(XXL) {
 			display: block;
 			right: 40px;
 		}
+
 		@include media(XXXL) {
 			right: 230px;
 		}
@@ -254,12 +280,15 @@ main {
 		background-color: $light-gray;
 		margin-top: 250px;
 		height: 600px;
+
 		@include media(S) {
 			height: 100%;
 		}
+
 		.container {
 			height: 100%;
 		}
+
 		article {
 			display: flex;
 			flex-wrap: wrap;
@@ -267,36 +296,43 @@ main {
 			height: 100%;
 			padding-top: 30px;
 		}
+
 		.feature {
 			max-height: 150px;
 			padding: 20px;
 			box-sizing: border-box;
 			margin-bottom: 70px;
+
 			@include media(S) {
 				flex: 1 0 100%;
 			}
+
 			@include media(M) {
 				flex: 1 0 50%;
 			}
+
 			@include media(L) {
 				flex: 1 0 33%;
 			}
-			
+
 			p {
 				margin-top: 0px;
+
 				&:nth-child(3) {
 					line-height: 30px;
 				}
-
 			}
+
 			.feature-img {
 				float: left;
 				margin-bottom: 100%;
 				margin-right: 30px;
 				margin-top: 10px;
 			}
+
 			.title {
 				@extend .white-bold-font;
+				
 				font-size: 22px;
 				color: $dark-blue;
 			}
@@ -318,24 +354,31 @@ main {
 			left: 0px;
 			top: 0px;
 			text-align: center;
+
 			.title {
 				@extend .white-bold-font;
+
 				font-size: 72px;
 				color: $dark-blue;
+
 				@include media(S) {
 					font-size: 40px;
 				}
+
 				@include media(L) {
 					font-size: 60px;
 				}
+
 				@include media(XL) {
 					font-size: 72px;
 				}
 			}
+
 			p {
 				&:nth-child(1) {
 					margin-bottom: 50px;
 				}
+
 				&:nth-child(2) {
 					line-height: 30px;
 					margin-bottom: 80px;

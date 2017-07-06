@@ -1,7 +1,7 @@
 @mixin transition($duration, $type) {
-	-moz-transition:	all $duration $type;
+	-moz-transition: 	all $duration $type;
 	-webkit-transition:	all $duration $type;
-	transition:	all $duration $type;
+	transition:			all $duration $type;
 }
 
 @mixin animation-color($color) {
