@@ -6,10 +6,15 @@ $dark-blue:				#25365d;			// granat
 $black-transparent:		rgba(0, 0, 0, 0.1);	// czerny przezroczysty
 $light-blue:			#bbd8ff;			// jasny niebieski
 $light-gray: 			#f7f9fb;			// bardzo jasny szary
+$light-gray-2:			#5a5a5a;			// jasny szary
 
 //base
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
 	display: block;
+}
+
+p { 
+ color:$light-gray-2;
 }
 
 body {
@@ -58,7 +63,7 @@ body {
 }
 
 .container {
-	width: 1132px;
+	width: 1155px;
 	margin: auto;
 }
 
@@ -202,9 +207,16 @@ main {
 	.features {
 		background-color: $light-gray;
 		margin-top: 250px;
+		height: 600px;
+		.container {
+			height: 100%;
+		}
 		article {
 			display: flex;
 			flex-wrap: wrap;
+			align-content: center;
+			height: 100%;
+    		padding-top: 30px;
 		}
 		.feature {
 			flex: 1 0 33%;
@@ -232,4 +244,36 @@ main {
 			}
 		}
 	}
+
+	.download-template {
+		margin-top: 140px;
+		height: 1156px;
+		position: relative;
+		.download-template-container {
+			
+			width: 100%;
+			height: 100%;
+			background-image: url(images/footer.png);
+			background-repeat: no-repeat;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			text-align: center;
+			.title {
+				@extend .white-bold-font;
+				font-size: 72px;
+				color: $dark-blue;
+			}
+			p {
+				&:nth-child(1) {
+					margin-bottom: 50px;
+				}
+				&:nth-child(2) {
+					line-height: 30px;
+					margin-bottom: 80px;
+				}
+			}
+		}
+	}
 }
+
