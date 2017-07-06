@@ -8,13 +8,24 @@ $light-blue:			#bbd8ff;			// jasny niebieski
 $light-gray: 			#f7f9fb;			// bardzo jasny szary
 $light-gray-2:			#5a5a5a;			// jasny szary
 
+//mixin
+
+@mixin transition($duration, $type) {
+	-moz-transition:	all $duration $type;
+	-webkit-transition:	all $duration $type;
+	transition:	all $duration $type;
+}
+@mixin animation-color($color) {
+    color: $color;
+}
+
 //base
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
 	display: block;
 }
 
 p { 
- color:$light-gray-2;
+ color: $light-gray-2;
 }
 
 body {
@@ -25,6 +36,7 @@ body {
 //components
 .button {
 	@extend .white-bold-font;
+	@include transition(0.5s, ease);
 	background-color: $dark-blue;
 	padding: 16px 54px;
 	border-radius: 25px;
@@ -32,7 +44,7 @@ body {
 	font-size: 18px;
 
 	&:hover {
-		color: $light-green;
+		@include animation-color($light-green);
 	}
 
 	.icon {
@@ -111,11 +123,12 @@ nav {
 
 			a {
 				@extend .white-bold-font;
+				@include transition(0.5s, ease);
 				text-decoration: none;
 				font-size: 20px;
 
 				&:hover {
-					color: $light-green;
+					@include animation-color($light-green);
 				}
 			}
 		}
