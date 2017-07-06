@@ -323,11 +323,13 @@ main {
 				}
 			}
 
-			.feature-img {
+			.feature-img-holder {
 				float: left;
 				margin-bottom: 100%;
 				margin-right: 30px;
-				margin-top: 10px;
+				margin-top: 8px;
+				width: 60px;
+				text-align: center;
 			}
 
 			.title {
