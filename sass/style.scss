@@ -16,8 +16,57 @@ $light-gray-2:			#5a5a5a;			// jasny szary
 	transition:	all $duration $type;
 }
 @mixin animation-color($color) {
-    color: $color;
+	color: $color;
 }
+@mixin media($size-letter) {
+
+	$var-size: 0;
+
+	@if $size-letter == 'S' {
+		$var-size: $page-width-S;
+	}
+	
+	@else if $size-letter == 'M' {
+		$var-size: $page-width-M;
+	}
+	
+	@else if $size-letter == 'L' {
+		$var-size: $page-width-L;
+	}
+	
+	@else if $size-letter == 'XL' {
+		$var-size: $page-width-XL;
+	}
+	
+	@else if $size-letter == 'XXL' {
+		$var-size: $page-width-XXL;
+	}
+	
+	@else if $size-letter == 'XXXL' {
+		$var-size: $page-width-XXXL;
+	}
+
+	@else if $size-letter == 'XXXXL' {
+		$var-size: $page-width-XXXXL;
+	}
+	
+	@media screen and (min-width: $var-size) {
+		@content;
+	}
+}
+
+//rwd
+$page-width: 100%;
+$page-width-S: 320px;
+$page-width-M: 768px;
+$page-width-L: 1024px;
+$page-width-XL: 1280px;
+$page-width-XXL: 1440px;
+$page-width-XXXL: 1920px;
+$page-width-XXXXL: 2000px;
+
+$page-min-width: 120px;
+$page-max-width: $page-width-XXXXL;
 
 //base
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
@@ -25,7 +74,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 p { 
- color: $light-gray-2;
+	color: $light-gray-2;
 }
 
 body {
@@ -75,7 +124,18 @@ body {
 }
 
 .container {
-	width: 1155px;
+	
+	@include media(S) {
+		width: 100%;
+	}
+	@include media(XL) {
+		width: 1155px;
+		display: inline;
+	}
+	@include media(XXL) {
+		width: 1155px;
+		display: block;
+	}
 	margin: auto;
 }
 
@@ -95,25 +155,68 @@ body {
 	z-index: 100;
 
 	.main-menu {
-		height: 87px;
-		width: 1620px;
 		margin: auto;
+		@include media(S) {
+			height: 150px;
+			text-align: center;
+		}
+		@include media(M) {
+			height: 87px;
+			text-align: left;
+		}
+
+		@include media(S) {
+			width: 100%;
+		}
+		@include media(XXXL) {
+			width: 1620px;
+		}
 
 		.logo {
 			@extend .center-vertically-child;
-			margin-left: 70px;
+			
+			@include media(S) {
+				position: relative;
+				margin-left: 5px;
+				margin-top: 40px;
+			}
+
+			@include media(M) {
+				position: absolute;
+				margin-left: 70px;
+				margin-top: 0px;
+			}
 		}
 	}
 }
 
 nav {
 	@extend .center-vertically-parent;
-
+	@include media(S) {
+	    margin-top: -68px;
+	}
+	@include media(M) {
+	    margin-top: 0px;
+	}
 	.main-nav {
 		@extend .center-vertically-child;
 		right: 0px;
 		margin: 0px;
 		padding: 0px;
+
+
+		@include media(S) {
+			display: flex;
+			width: 100%;
+			padding: 0px;
+			flex-wrap: wrap;
+		}
+
+		@include media(M) {
+			display: block;
+			flex-wrap: inherit;
+			width:auto;
+		}
 
 		li {
 			margin: auto 64px;
@@ -121,6 +224,14 @@ nav {
 			float: left;
 			letter-spacing: 2px;
 
+			@include media(S) {
+				margin: 10px 0px 0px 0px;
+    			flex: 1 0 50%;
+			}
+			@include media(M) {
+				margin: auto 15px;
+				flex: 0 0 0%;
+			}
 			a {
 				@extend .white-bold-font;
 				@include transition(0.5s, ease);
@@ -146,6 +257,7 @@ main {
 			width: 100%;
 			height: 100%;
 			background-image: url(../images/background-top.png);
+			background-size: cover;
 			background-repeat: no-repeat;
 			position: absolute;
 			left: 0px;
@@ -155,19 +267,65 @@ main {
 
 		.title {
 			@extend .white-bold-font;
-			font-size: 91px;
 			letter-spacing: 3px;
+
+			@include media(S) {
+				font-size: 45px;
+			}    
+			@include media(M) {
+				font-size: 55px;
+			}    
+			@include media(M) {
+				font-size: 80px;
+			}    
+			@include media(L) {
+				font-size: 91px;
+			}   
+
 		}
 
 		.title-description {
 			font-size: 24px;
-			width: 830px;
+			
+			@include media(S) {
+				width: 100%;
+			}
+			@include media(XL) {
+				width: 830px;
+			}
 			margin: 0 auto 60px auto;
 			color: $light-blue;
 			&::first-line {
 				line-height: 50px;
 			}
 		}
+		.bg-text {
+			position: absolute;
+			bottom: 500px;
+			color: white;
+			font-family: "Open Sans";
+			text-transform: uppercase;
+			font-weight: bold;
+			z-index: 1;
+			font-size: 120px;
+			width: 100%;
+			text-align: center;
+			left: 0px;
+			@include media(S) {
+				display: none;
+			}
+			@include media(XXL) {
+			    bottom: 480px;
+    			font-size: 170px;
+   				display: block;
+			}
+
+			@include media(XXXXL) {
+				display: none;
+			}
+
+		}
+
 	}
 	.download {
 		text-align: left;
@@ -175,25 +333,34 @@ main {
 		position: absolute;
 		bottom: 0px;
 		margin-bottom: 140px;
-		.bg-text {
-			position: absolute;
-			top: -160px;
-			left: -30%;
-			font-size: 190px;
-			width: 1620px;
-			color: white;
-			font-family: "Open Sans";
-			text-transform: uppercase;
-			font-weight: bold;
-			z-index: 1;
+		@include media(S) {
+			text-align: center;
+			width: 100%;
+			margin-bottom: 20px;
 		}
+		@include media(M) {
+			width: 100%;
+			margin-bottom: 200px;
+		}
+		@include media(XXL) {
+			text-align: left;
+			width: 780px;
+			    margin-bottom: 145px;
+		}
+		
+		
 		.title-dark {
 			@extend .white-bold-font;
-			font-size: 60px;
 			color: $dark-blue;
 			margin-bottom: 70px;
 			z-index: 2;
 			position: relative;
+			@include media(S) {
+				font-size: 30px;
+			}
+			@include media(M) {
+				font-size: 60px;
+			}
 		}
 		.advantage {
 			color: $light-blue;
@@ -201,10 +368,10 @@ main {
 		p {
 			line-height: 35px;
 			margin: 0px;
-			&:nth-child(3) {
+			&:nth-child(2) {
 				margin-bottom: 30px;
 			}
-			&:nth-child(6) {
+			&:nth-child(5) {
 				margin-bottom: 50px;
 			}
 		}
@@ -214,13 +381,26 @@ main {
 		bottom: 0px;
 		margin-bottom: 130px;
 		z-index: 2;
-		right: 230px;
+		
+		@include media(S) {
+			display: none;
+		}
+		@include media(XXL) {
+			display: block;
+			right: 40px;
+		}
+		@include media(XXXL) {
+			right: 230px;
+		}
 	}
 
 	.features {
 		background-color: $light-gray;
 		margin-top: 250px;
 		height: 600px;
+		@include media(S) {
+			height: 100%;
+		}
 		.container {
 			height: 100%;
 		}
@@ -229,14 +409,23 @@ main {
 			flex-wrap: wrap;
 			align-content: center;
 			height: 100%;
-    		padding-top: 30px;
+			padding-top: 30px;
 		}
 		.feature {
-			flex: 1 0 33%;
 			max-height: 150px;
 			padding: 20px;
 			box-sizing: border-box;
 			margin-bottom: 70px;
+			@include media(S) {
+				flex: 1 0 100%;
+			}
+			@include media(M) {
+				flex: 1 0 50%;
+			}
+			@include media(L) {
+				flex: 1 0 33%;
+			}
+			
 			p {
 				margin-top: 0px;
 				&:nth-child(3) {
@@ -246,7 +435,7 @@ main {
 			}
 			.feature-img {
 				float: left;
-				margin-bottom: 70px;
+				margin-bottom: 100%;
 				margin-right: 30px;
 				margin-top: 10px;
 			}
@@ -268,6 +457,7 @@ main {
 			height: 100%;
 			background-image: url(../images/footer.png);
 			background-repeat: no-repeat;
+			background-size: cover;
 			position: absolute;
 			left: 0px;
 			top: 0px;
@@ -276,6 +466,15 @@ main {
 				@extend .white-bold-font;
 				font-size: 72px;
 				color: $dark-blue;
+				@include media(S) {
+					font-size: 40px;
+				}
+				@include media(L) {
+					font-size: 60px;
+				}
+				@include media(XL) {
+					font-size: 72px;
+				}
 			}
 			p {
 				&:nth-child(1) {
